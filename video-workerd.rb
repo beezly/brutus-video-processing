@@ -12,6 +12,7 @@ w.add_ability('encode') do |path, job|
   d = Dir.new $ENCODING_PATH
   ogg_path = d.glob("#{base_name}.og?")[0]
   File.rename "#{$ENCODING_PATH}/#{path}", "#{$VIDEO_PATH}/#{ogg_path}"
+  File.delete "#{$ENCODING_PATH}/#{path}"
 end
 
 loop { w.work } 
