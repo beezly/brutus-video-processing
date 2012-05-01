@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'gearman'
 
 $ENCODING_PATH = '/var/encode'
