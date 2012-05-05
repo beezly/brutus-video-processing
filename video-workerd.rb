@@ -3,7 +3,7 @@ require 'gearman'
 require 'fileutils'
 
 $ENCODING_PATH = '/var/encode'
-$VIDEO_PATH = '/var/videos'
+$VIDEO_PATH = '/var/videos/encoded'
 $GEARMAN_SERVER = 'brutus.shef.ac.uk'
 
 w = Gearman::Worker.new($GEARMAN_SERVER)
