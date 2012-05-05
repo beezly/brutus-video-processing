@@ -10,9 +10,7 @@ w = Gearman::Worker.new($GEARMAN_SERVER)
 
 w.add_ability('encode') do |path, job|
   base_name = path.sub /\.mov$/, ''
-  `ffmpeg2theora "#{$ENCODING_PATH}/#{path}"`
-  ogg_path = Dir.glob("#{$ENCODING_PATH}/#{base_name}.og?")[0]
-  FileUtils.mv ogg_path, "#{$VIDEO_PATH}"
+  `ffmpeg2theora -i "#{$ENCODING_PATH}/#{path}" -vcodec libtheora "#{$VIDEO_PATH}/#{base_name}.ogv" -vcodec libx264 "#{$VIDEO_PATH}/#{base_name}.mp4"`
   File.delete "#{$ENCODING_PATH}/#{path}"
 end
 
